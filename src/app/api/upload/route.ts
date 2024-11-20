@@ -48,13 +48,16 @@ export async function POST(request: Request) {
 
     // Send to your Express backend
     console.log("UPLOAD PAYLOAD:   ", payload);
-    const response = await fetch(`${config.backend_endpoint}/upload`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    const response = await fetch(
+      `http://${config.backend_endpoint}:11112/upload`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

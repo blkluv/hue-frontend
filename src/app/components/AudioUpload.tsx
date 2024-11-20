@@ -45,6 +45,10 @@ const AudioUpload = () => {
       const formData = new FormData();
       formData.append("audio", selectedFile);
       formData.append("title", title.trim());
+      formData.append(
+        "artist_address",
+        "0xcfab8ce8753127d040f39e21cdbc4df7894021964cca9f9921f8f4f3519f4b61"
+      );
 
       const response = await fetch("/api/upload", {
         method: "POST",
