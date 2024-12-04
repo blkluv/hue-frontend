@@ -1,5 +1,11 @@
-import AudioUpload from "./components/AudioUpload";
+"use client";
+
+import Header from "./components/Header";
 
 export default function Home() {
-  return <AudioUpload />;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
