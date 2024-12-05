@@ -65,10 +65,7 @@ export async function POST(request: Request) {
 
     const result = await response.json();
 
-    return NextResponse.json({
-      message: "Upload success!",
-      result,
-    });
+    return NextResponse.json(result);
   } catch (error) {
     console.error("Error processing audio:", error);
     return NextResponse.json(

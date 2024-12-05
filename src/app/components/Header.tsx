@@ -1,4 +1,3 @@
-// components/Header.tsx
 "use client";
 
 import { ConnectButton } from "@mysten/dapp-kit";
@@ -15,6 +14,9 @@ export default function Header() {
           </Link>
           <Link href="/listen" className="hover:text-gray-600">
             Listen
+          </Link>
+          <Link href="/lookup" className="hover:text-gray-600">
+            Lookup
           </Link>
         </nav>
       </div>

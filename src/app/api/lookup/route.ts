@@ -2,7 +2,7 @@
 import { config } from "@/config";
 import { NextResponse } from "next/server";
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const response = await fetch(
       `http://${config.backend_endpoint}:11112/lookup`,
@@ -17,10 +17,7 @@ export async function GET(request: Request) {
 
     const result = await response.json();
 
-    return NextResponse.json({
-      message: "Lookup success!",
-      result,
-    });
+    return NextResponse.json(result);
   } catch (error) {
     console.error("Error during lookup:", error);
     return NextResponse.json(
