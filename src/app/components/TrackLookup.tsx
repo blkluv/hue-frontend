@@ -21,6 +21,7 @@ export interface Track {
   onChainObjectId: string;
   createdAt: string;
   artist: User;
+  costPerStream: number;
 }
 
 export default function TrackList() {

@@ -11,6 +11,7 @@ const AudioUpload = () => {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -45,6 +46,7 @@ const AudioUpload = () => {
       const formData = new FormData();
       formData.append("audio", selectedFile);
       formData.append("title", title.trim());
+      formData.append("price", price);
       formData.append(
         "artist_address",
         "0xcfab8ce8753127d040f39e21cdbc4df7894021964cca9f9921f8f4f3519f4b61"
@@ -84,6 +86,13 @@ const AudioUpload = () => {
             placeholder="Enter audio title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            className="border-gray-300 focus:border-black focus:ring-black"
+          />
+          <Input
+            type="price"
+            placeholder="Enter price per stream"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
             className="border-gray-300 focus:border-black focus:ring-black"
           />
 

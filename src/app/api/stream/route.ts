@@ -6,17 +6,16 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const trackId = searchParams.get("trackId");
-    const blobId = searchParams.get("blobId");
 
-    if (!trackId || !blobId) {
+    if (!trackId) {
       return NextResponse.json(
-        { error: "trackId and blobId are required" },
+        { error: "trackId is required" },
         { status: 400 }
       );
     }
 
     const response = await fetch(
-      `http://${config.backend_endpoint}:11112/stream?trackId=${trackId}&blobId=${blobId}`,
+      `http://${config.backend_endpoint}:11112/stream?trackId=${trackId}`,
       {
         method: "GET",
       }

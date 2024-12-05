@@ -47,9 +47,7 @@ export function AudioPlayerModal({ track, onClose }: AudioPlayerModalProps) {
         setDigest(confirmData.message);
 
         // Now fetch and set up the audio
-        const response = await fetch(
-          `/api/stream?trackId=${track.objectId}&blobId=${track.blobId}`
-        );
+        const response = await fetch(`/api/stream?trackId=${track.objectId}`);
 
         if (!response.ok) throw new Error("Failed to fetch audio");
 

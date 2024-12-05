@@ -14,10 +14,7 @@ export function Providers({ children }: { children: ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider networks={networks} defaultNetwork="mainnet">
-        <WalletProvider>
-          {console.log("Wallet Mounted")}
-          {children}
-        </WalletProvider>
+        <WalletProvider>{children}</WalletProvider>
       </SuiClientProvider>
     </QueryClientProvider>
   );

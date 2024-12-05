@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 interface UploadPayload {
   audio: string; // base64 encoded audio
   title: string;
+  price: number;
   artist_address: string;
   metadata: {
     filename: string;
@@ -20,6 +21,8 @@ export async function POST(request: Request) {
     const formData = await request.formData();
     const audioFile = formData.get("audio") as File;
     const title = formData.get("title") as string;
+    const stringPrice = formData.get("price") as string;
+    const price = Number.parseFloat(stringPrice);
     const artist_address = formData.get("artist_address") as string;
 
     if (!audioFile) {
@@ -38,6 +41,7 @@ export async function POST(request: Request) {
       audio: base64Audio,
       title,
       artist_address,
+      price,
       metadata: {
         filename: audioFile.name,
         fileSize: audioFile.size,
